@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "LinkedListImplementation/1.0.0": {
+        "dependencies": {
+          "DataStructuresLibrary": "1.0.0"
+        },
+        "runtime": {
+          "LinkedListImplementation.dll": {}
+        }
+      },
+      "DataStructuresLibrary/1.0.0": {
+        "runtime": {
+          "DataStructuresLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LinkedListImplementation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataStructuresLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
