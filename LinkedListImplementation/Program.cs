@@ -29,15 +29,31 @@
 
 Console.WriteLine("-----------------------------------");
 #region DoubleLinkedlist 
-DataStructuresLibrary.DoubleLinkedList.LinkedList doubleLinkedList = new DataStructuresLibrary.DoubleLinkedList.LinkedList();
+DataStructuresLibrary.DoubleLinkedList.LinkedList<int> doubleLinkedList = new DataStructuresLibrary.DoubleLinkedList.LinkedList<int>();
 doubleLinkedList.InsertLast(0);
 doubleLinkedList.InsertLast(1);
 doubleLinkedList.InsertLast(2);
 doubleLinkedList.InsertLast(3);
-doubleLinkedList.PrintLinkedListData();
+//doubleLinkedList.PrintLinkedListData();
+//Console.WriteLine($"Length: {doubleLinkedList.Length}");
+
 //doubleLinkedList.DeleteNode(0);
 //doubleLinkedList.PrintLinkedListData();
-doubleLinkedList.InsertBefore(3,88);
-doubleLinkedList.PrintLinkedListData();
+//Console.WriteLine($"Length: {doubleLinkedList.Length}");
+
+//doubleLinkedList.InsertBefore(3,88);
+//doubleLinkedList.PrintLinkedListData();
+//Console.WriteLine($"Length: {doubleLinkedList.Length}");
+//Make Hard Acopy from Linked List 
+DataStructuresLibrary.DoubleLinkedList.LinkedList<int> doubleLinkedListCopy = new DataStructuresLibrary.DoubleLinkedList.LinkedList<int>();
+var currentNode = doubleLinkedList.Head; 
+do
+{
+    doubleLinkedListCopy.InsertLast(currentNode!.Data);
+    currentNode = currentNode.Next; 
+} while (currentNode != null);
+doubleLinkedListCopy.PrintLinkedListData();
+
 #endregion
+
 Console.ReadKey();

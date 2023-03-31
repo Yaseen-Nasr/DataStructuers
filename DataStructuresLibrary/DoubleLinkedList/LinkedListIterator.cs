@@ -7,25 +7,25 @@ using System.Threading.Tasks;
 
 namespace DataStructuresLibrary.DoubleLinkedList
 {
-    public class LinkedListIterator
+    public class LinkedListIterator<T>
     {
-        internal LinkedListNode? CurrentNode;
+        internal LinkedListNode<T>? CurrentNode;
         public LinkedListIterator()
         {
             CurrentNode = null;
         }
-        internal LinkedListIterator(LinkedListNode node)
+        internal LinkedListIterator(LinkedListNode<T> node)
         {
             CurrentNode = node;
         }
-        public int Data() => CurrentNode!.Data;
+        public T Data() => CurrentNode!.Data;
 
-        public LinkedListIterator Next()
+        public LinkedListIterator<T> Next()
         {
-            CurrentNode = CurrentNode.Next;
+            CurrentNode = CurrentNode!.Next;
             return this;
         }
-        internal LinkedListNode? Current() => this.CurrentNode;
+        internal LinkedListNode<T>? Current() => this.CurrentNode;
 
     }
 }

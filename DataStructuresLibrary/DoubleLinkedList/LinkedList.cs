@@ -7,10 +7,11 @@ using System.Xml.Linq;
 
 namespace DataStructuresLibrary.DoubleLinkedList
 {
-    public class LinkedList
+    public class LinkedList<T>  
     {
-        internal LinkedListNode? Head = null;
-        internal LinkedListNode? Tail = null;
+        public LinkedListNode<T>? Head = null;
+        public LinkedListNode<T>? Tail = null;
+        public int Length { get; private set; }
         public void PrintLinkedListData()
         {
             StringBuilder sb = new StringBuilder();
@@ -19,7 +20,7 @@ namespace DataStructuresLibrary.DoubleLinkedList
                 Console.WriteLine("Empty List!!");
                 return;
             }
-            for (LinkedListIterator itr = Begin(); itr.Current() != null; itr = itr.Next())
+            for (LinkedListIterator<T> itr = Begin(); itr.Current() != null; itr = itr.Next())
             {
                 sb.Append(itr.Data());
                 sb.Append(",");
@@ -27,9 +28,9 @@ namespace DataStructuresLibrary.DoubleLinkedList
 
             Console.WriteLine(sb.ToString().Trim(','));
         }
-        public void InsertLast(int data)
+        public void InsertLast(T data)
         {
-            LinkedListNode? node = new(data);
+            LinkedListNode<T>? node = new(data);
             if (Head is null)
             {
                 Head = node;
@@ -40,12 +41,13 @@ namespace DataStructuresLibrary.DoubleLinkedList
                 node.Back = Tail;
                 Tail!.Next = node;
                 Tail = node; 
-            }  
+            }
+            Length++;
         }
-        public void InserAfter(int specificNodeData, int newNodeData)
+        public void InserAfter(T specificNodeData, T newNodeData)
         {
-            LinkedListNode newNode =new LinkedListNode(newNodeData);
-            LinkedListNode? specificNode = null;
+            LinkedListNode<T> newNode =new LinkedListNode<T>(newNodeData);
+            LinkedListNode<T>? specificNode = null;
             if (Head is null)
             {
                 Console.WriteLine("Empty List!!");
@@ -65,12 +67,12 @@ namespace DataStructuresLibrary.DoubleLinkedList
                 Tail = newNode;
             else
             newNode.Next!.Back = newNode;
-
+            Length++;
         }
-        public void InsertBefore(int specificNodeData, int newNodeData)
+        public void InsertBefore(T specificNodeData, T newNodeData)
         {
-            LinkedListNode newNode = new LinkedListNode(newNodeData);
-            LinkedListNode? node = Find(specificNodeData); 
+            LinkedListNode<T> newNode = new LinkedListNode<T>(newNodeData);
+            LinkedListNode<T>? node = Find(specificNodeData); 
             if (node is null)
             {
                 Console.WriteLine($"Node with {specificNodeData} data is not existe!!");
@@ -86,11 +88,11 @@ namespace DataStructuresLibrary.DoubleLinkedList
                 node.Back!.Next = newNode;
             }
             node.Back = newNode;
-
+            Length++;
         }
-        public void DeleteNode(int data)
+        public void DeleteNode(T data)
         {
-            LinkedListNode? node = Find(data);
+            LinkedListNode<T>? node = Find(data);
             if (node is null)
             {
                 Console.WriteLine($"Node with {data} data is not existe!!");
@@ -116,18 +118,18 @@ namespace DataStructuresLibrary.DoubleLinkedList
                     node.Next!.Back = node.Back;
                 }
             }
-            
+            Length--;
         }
-        private LinkedListNode? Find(int data)
+        private LinkedListNode<T>? Find(T data)
         {
-            for (LinkedListIterator itr = Begin(); itr.Current() != null; itr = itr.Next())
-                if (itr.Data() == data) return itr.Current();
+            for (LinkedListIterator<T> itr = Begin(); itr.Current() != null; itr = itr.Next())
+                if (itr.Data()!.Equals(data)) return itr.Current();
 
             return null;
         } 
-        private LinkedListIterator Begin()
+        private LinkedListIterator<T> Begin()
         {
-            LinkedListIterator itr = new LinkedListIterator(Head!);
+            LinkedListIterator<T> itr = new LinkedListIterator<T>(Head!);
             return itr;
         }
     }

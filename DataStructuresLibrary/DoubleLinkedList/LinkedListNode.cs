@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataStructuresLibrary.DoubleLinkedList
 {
-    internal class LinkedListNode
+    public class LinkedListNode<T>
     {
-        public int Data { get; }
-        public LinkedListNode? Next { get; set; }
-        public LinkedListNode? Back { get; set; }
-        public LinkedListNode(int data)
+        public T Data { get; }
+        public LinkedListNode<T>? Next { get; set; }
+        public LinkedListNode<T>? Back { get; set; }
+        public LinkedListNode(T data)
         {
             Data = data;
             Next = null;
