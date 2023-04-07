@@ -32,9 +32,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Data\\DataStructure\\LinkedListImplementation\\TestLinkedList.csproj",
-      "projectName": "TestLinkedList",
-      "projectPath": "C:\\Data\\DataStructure\\LinkedListImplementation\\TestLinkedList.csproj",
+      "projectUniqueName": "C:\\Data\\DataStructure\\LinkedListImplementation\\Test.csproj",
+      "projectName": "Test",
+      "projectPath": "C:\\Data\\DataStructure\\LinkedListImplementation\\Test.csproj",
       "packagesPath": "C:\\Users\\yasee\\.nuget\\packages\\",
       "outputPath": "C:\\Data\\DataStructure\\LinkedListImplementation\\obj\\",
       "projectStyle": "PackageReference",

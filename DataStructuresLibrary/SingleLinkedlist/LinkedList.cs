@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 
 namespace DataStructuresLibrary.LinkedlistImp
 {
@@ -6,6 +7,13 @@ namespace DataStructuresLibrary.LinkedlistImp
     {
         internal LinkedListNode? Head = null;
         internal LinkedListNode? Tail = null;
+        private readonly bool IsLinkedListUnique;
+        public int length { get; private set; } 
+        public LinkedList(bool isLinkedListUnique=false)
+        {
+            IsLinkedListUnique = isLinkedListUnique;
+            length= 0;
+        }
         public void PrintLinkedListData()
         {
             StringBuilder sb = new StringBuilder();
@@ -24,6 +32,11 @@ namespace DataStructuresLibrary.LinkedlistImp
         }
         public void InsertLast(int data)
         {
+            if (!CanInsert(data))
+            {
+                Console.WriteLine($"node with {data} is already exist!!");
+                return;
+            } 
             LinkedListNode? node = new(data);
             if (Head is null)
             {
@@ -35,10 +48,16 @@ namespace DataStructuresLibrary.LinkedlistImp
                 Tail!.Next = node;
                 Tail = node;
             }
+            length++;
         }
-        public void InserAfter(int specificNodeData, int newNodeData)
+        public void InserAfter(int specificNodeData, int data)
         {
-            LinkedListNode? newNode = new(newNodeData);
+            if (!CanInsert(data))
+            {
+                Console.WriteLine($"node with {data} is already exist!!");
+                return;
+            }
+            LinkedListNode? newNode = new(data);
             LinkedListNode? specificNode = null;
             if (Head is null)
             {
@@ -55,10 +74,17 @@ namespace DataStructuresLibrary.LinkedlistImp
             specificNode.Next = newNode;
             if (Tail == specificNode)
                 Tail = newNode;
+            length++;
+
         }
-        public void InsertBefore(int specificNodeData, int newNodeData)
+        public void InsertBefore(int specificNodeData, int data)
         {
-            LinkedListNode? newNode = new(newNodeData);
+            if (!CanInsert(data))
+            {
+                Console.WriteLine($"node with {data} is already exist!!");
+                return;
+            }
+            LinkedListNode? newNode = new(data);
             LinkedListNode? specificNode = null;
             LinkedListNode? parentNode = null;
             if (Head is null)
@@ -83,6 +109,8 @@ namespace DataStructuresLibrary.LinkedlistImp
             parentNode = FindParent(specificNodeData);
             newNode.Next = parentNode!.Next;
             parentNode.Next = newNode;
+            length++;
+
         }
         public void DeleteNode(int data)
         {
@@ -92,7 +120,7 @@ namespace DataStructuresLibrary.LinkedlistImp
                 Console.WriteLine($"Node with {data} data is not existe!!");
                 return;
             }
-            if (node == Head && node == Tail)
+            if ( Head == Tail)
                 Head = Tail = null;
             else if (node == Head)
                 Head = Head!.Next;
@@ -107,8 +135,33 @@ namespace DataStructuresLibrary.LinkedlistImp
                 }
                 else
                     parent!.Next = node!.Next;
-            } 
+            }
+            length--;
+
         }
+        #region For Stack
+        internal void InsertFirst(int data)
+        {
+            if (!CanInsert(data)) return; 
+                LinkedListNode? newNode = new(data);
+            if (Head is null)
+                Head = Tail = newNode;
+            else
+            {
+                newNode.Next = Head; 
+                Head = newNode;
+            }
+
+            length++; 
+        }
+         internal void DeleteHead()
+        {
+            if (Head is null)
+                return;
+            this.Head = Head.Next;
+            length--;
+        }
+        #endregion
         private LinkedListNode? Find(int data)
         {
             for (LinkedListIterator itr = Begin(); itr.Current() != null; itr = itr.Next())
@@ -128,6 +181,10 @@ namespace DataStructuresLibrary.LinkedlistImp
         {
             LinkedListIterator itr = new LinkedListIterator(Head!);
             return itr;
+        }
+        private bool CanInsert(int data)
+        {
+            return IsLinkedListUnique && Find(data) is null;
         }
     }
 

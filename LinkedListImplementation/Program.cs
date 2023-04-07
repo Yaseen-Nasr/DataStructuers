@@ -3,37 +3,39 @@
 
 #region SingleLinkedlist
 
-//DataStructuresLibrary.LinkedlistImp.LinkedList list = new DataStructuresLibrary.LinkedlistImp.LinkedList();
+//DataStructuresLibrary.LinkedlistImp.LinkedList list = new DataStructuresLibrary.LinkedlistImp.LinkedList(isLinkedListUnique: true);
+//DataStructuresLibrary.LinkedlistImp.LinkedList list = new DataStructuresLibrary.LinkedlistImp.LinkedList(true);
 //list.InsertLast(0);
 //list.InsertLast(1);
 //list.InsertLast(2);
 //list.InsertLast(3);
 //list.PrintLinkedListData();
-//#region InserAfter
-////Check insert after Specific Node
-//list.InserAfter(3, 23);
-////Check Validation
-////list.InserAfter(7, 5);
+//list.InsertLast(3);
+#region InserAfter 
+//list.InserAfter(3, 23); 
+//list.InserAfter(7, 5);
 //list.PrintLinkedListData();
-//#endregion
-//#region InsertBefore
-////list.InsertBefore(5, 88);
-////list.PrintLinkedListData();
-//#endregion
-//#region DeleteNode
+#endregion
+#region InsertBefore
+//list.InsertBefore(5, 88);
+//list.PrintLinkedListData();
+#endregion
+#region DeleteNode
 //list.DeleteNode(23);
 //list.PrintLinkedListData();
 //#endregion
 
 #endregion
+#endregion
 
-Console.WriteLine("-----------------------------------");
+//Console.WriteLine("-----------------------------------");
 #region DoubleLinkedlist 
-DataStructuresLibrary.DoubleLinkedList.LinkedList<int> doubleLinkedList = new DataStructuresLibrary.DoubleLinkedList.LinkedList<int>();
-doubleLinkedList.InsertLast(0);
-doubleLinkedList.InsertLast(1);
-doubleLinkedList.InsertLast(2);
-doubleLinkedList.InsertLast(3);
+//DataStructuresLibrary.DoubleLinkedList.LinkedList<int> doubleLinkedList = new DataStructuresLibrary.DoubleLinkedList.LinkedList<int>();
+//doubleLinkedList.InsertLast(0);
+//doubleLinkedList.InsertLast(1);
+//doubleLinkedList.InsertLast(2);
+//doubleLinkedList.InsertLast(3);
+
 //doubleLinkedList.PrintLinkedListData();
 //Console.WriteLine($"Length: {doubleLinkedList.Length}");
 
@@ -41,19 +43,39 @@ doubleLinkedList.InsertLast(3);
 //doubleLinkedList.PrintLinkedListData();
 //Console.WriteLine($"Length: {doubleLinkedList.Length}");
 
-//doubleLinkedList.InsertBefore(3,88);
+//doubleLinkedList.InsertBefore(3, 88);
 //doubleLinkedList.PrintLinkedListData();
 //Console.WriteLine($"Length: {doubleLinkedList.Length}");
-//Make Hard Acopy from Linked List 
-DataStructuresLibrary.DoubleLinkedList.LinkedList<int> doubleLinkedListCopy = new DataStructuresLibrary.DoubleLinkedList.LinkedList<int>();
-var currentNode = doubleLinkedList.Head; 
-do
-{
-    doubleLinkedListCopy.InsertLast(currentNode!.Data);
-    currentNode = currentNode.Next; 
-} while (currentNode != null);
-doubleLinkedListCopy.PrintLinkedListData();
+
+
+////Make Hard copy from Linked List 
+//DataStructuresLibrary.DoubleLinkedList.LinkedList<int> doubleLinkedListCopy = new DataStructuresLibrary.DoubleLinkedList.LinkedList<int>();
+//var currentNode = doubleLinkedList.Head; 
+//do
+//{
+//    doubleLinkedListCopy.InsertLast(currentNode!.Data);
+//    currentNode = currentNode.Next; 
+//} while (currentNode != null);
+//doubleLinkedListCopy.PrintLinkedListData();
 
 #endregion
+#region stack
+DataStructuresLibrary.LogicalDataStructure.Stack stack = new DataStructuresLibrary.LogicalDataStructure.Stack(true);
+Console.WriteLine($"isEmpty : {stack.IsEmpty()}");
+stack.Push(1);
+stack.Push(2);
+stack.Push(3);
+stack.Push(4);
+stack.Print();
+while (!stack.IsEmpty())
+{
 
+    Console.WriteLine($"Peek: {stack.Peek()}");
+    Console.WriteLine($"Pop : {stack.Pop()}");
+    Console.WriteLine($"Size : {stack.Size()}");
+    stack.Print();
+}
+
+
+#endregion
 Console.ReadKey();
