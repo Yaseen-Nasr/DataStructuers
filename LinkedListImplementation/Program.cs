@@ -60,22 +60,43 @@
 
 #endregion
 #region stack
-DataStructuresLibrary.LogicalDataStructure.Stack stack = new DataStructuresLibrary.LogicalDataStructure.Stack(true);
-Console.WriteLine($"isEmpty : {stack.IsEmpty()}");
-stack.Push(1);
-stack.Push(2);
-stack.Push(3);
-stack.Push(4);
-stack.Print();
-while (!stack.IsEmpty())
+//DataStructuresLibrary.LogicalDataStructure.Stack stack = new DataStructuresLibrary.LogicalDataStructure.Stack(true);
+//Console.WriteLine($"isEmpty : {stack.IsEmpty()}");
+//stack.Push(1);
+//stack.Push(2);
+//stack.Push(3);
+//stack.Push(4);
+//stack.Print();
+//while (!stack.IsEmpty())
+//{
+
+//    Console.WriteLine($"Peek: {stack.Peek()}");
+//    Console.WriteLine($"Pop : {stack.Pop()}");
+//    Console.WriteLine($"Size : {stack.Size()}");
+//    stack.Print();
+//}
+
+
+#endregion
+#region Queue
+DataStructuresLibrary.LogicalDataStructure.Queue queue = new DataStructuresLibrary.LogicalDataStructure.Queue(true);
+Console.WriteLine($"isEmpty : {queue.HasData()}");
+queue.Enqueue(1);
+queue.Enqueue(2);
+queue.Enqueue(3);
+queue.Enqueue(4);
+queue.Print();
+while (queue.HasData())
 {
 
-    Console.WriteLine($"Peek: {stack.Peek()}");
-    Console.WriteLine($"Pop : {stack.Pop()}");
-    Console.WriteLine($"Size : {stack.Size()}");
-    stack.Print();
+    Console.WriteLine($"Peek: {queue.Peek()}");
+    Console.WriteLine($"Dequeue : { queue.Dequeue()}");
+    Console.WriteLine($"Size : {queue.Size()}");
+    queue.Print();
 }
 
 
 #endregion
+
+
 Console.ReadKey();

@@ -139,7 +139,7 @@ namespace DataStructuresLibrary.LinkedlistImp
             length--;
 
         }
-        #region For Stack
+        // For Stack
         internal void InsertFirst(int data)
         {
             if (!CanInsert(data)) return; 
@@ -154,14 +154,14 @@ namespace DataStructuresLibrary.LinkedlistImp
 
             length++; 
         }
-         internal void DeleteHead()
+        // For Stack and Queue 
+        internal void DeleteHead()
         {
             if (Head is null)
                 return;
             this.Head = Head.Next;
             length--;
-        }
-        #endregion
+        } 
         private LinkedListNode? Find(int data)
         {
             for (LinkedListIterator itr = Begin(); itr.Current() != null; itr = itr.Next())
