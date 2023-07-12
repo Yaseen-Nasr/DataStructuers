@@ -79,22 +79,51 @@
 
 #endregion
 #region Queue
-DataStructuresLibrary.LogicalDataStructure.Queue queue = new DataStructuresLibrary.LogicalDataStructure.Queue(true);
-Console.WriteLine($"isEmpty : {queue.HasData()}");
-queue.Enqueue(1);
-queue.Enqueue(2);
-queue.Enqueue(3);
-queue.Enqueue(4);
-queue.Print();
-while (queue.HasData())
-{
+//DataStructuresLibrary.LogicalDataStructure.Queue queue = new DataStructuresLibrary.LogicalDataStructure.Queue(true);
+//Console.WriteLine($"has Data : {queue.HasData()}");
+//queue.Enqueue(1);
+//queue.Enqueue(2);
+//queue.Enqueue(3);
+//queue.Enqueue(4);
+//queue.Print();
+//while (queue.HasData())
+//{
 
-    Console.WriteLine($"Peek: {queue.Peek()}");
-    Console.WriteLine($"Dequeue : { queue.Dequeue()}");
-    Console.WriteLine($"Size : {queue.Size()}");
-    queue.Print();
-}
+//    Console.WriteLine($"Peek: {queue.Peek()}");
+//    Console.WriteLine($"Dequeue : { queue.Dequeue()}");
+//    Console.WriteLine($"Size : {queue.Size()}");
+//    queue.Print();
+//} 
+#endregion
+#region Dictionary
+DataStructuresLibrary.Hashs.Dictionary<string, string> dic = new DataStructuresLibrary.Hashs.Dictionary<string, string>();
+dic.Print();
 
+dic.Set("Sinar", "sinar@gmail.com");
+dic.Set("Elvis", "elvis@gmail.com");
+dic.Print();
+
+dic.Set("Tane", "tane@gmail.com");
+dic.Set("Gerti", "gerti@gmail.com");
+dic.Set("Arist", "arist@gmail.com");
+
+//dic.Set("rArist", "rarist@gmail.com");
+//dic.Set("tArist", "tarist@gmail.com");
+//dic.Set("yArist", "yarist@gmail.com");
+dic.Print();
+
+Console.WriteLine(dic.Get("Tane"));
+Console.WriteLine(dic.Get("Sinar"));
+Console.WriteLine(dic.Get("Elviaaa"));
+
+dic.Remove("Sinar");
+dic.Remove("Elvis");
+dic.Remove("Tane");
+dic.Remove("Gerti");
+dic.Remove("Arist");
+dic.Print();
+dic.Set("Sinar", "sinar@gmail.com");
+dic.Print();
 
 #endregion
 
