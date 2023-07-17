@@ -96,36 +96,57 @@
 //} 
 #endregion
 #region Dictionary
-DataStructuresLibrary.Hashs.Dictionary<string, string> dic = new DataStructuresLibrary.Hashs.Dictionary<string, string>();
-dic.Print();
+//DataStructuresLibrary.Hashs.Dictionary<string, string> dic = new DataStructuresLibrary.Hashs.Dictionary<string, string>();
+//dic.Print();
 
-dic.Set("Sinar", "sinar@gmail.com");
-dic.Set("Elvis", "elvis@gmail.com");
-dic.Print();
+//dic.Set("Sinar", "sinar@gmail.com");
+//dic.Set("Elvis", "elvis@gmail.com");
+//dic.Print();
 
-dic.Set("Tane", "tane@gmail.com");
-dic.Set("Gerti", "gerti@gmail.com");
-dic.Set("Arist", "arist@gmail.com");
+//dic.Set("Tane", "tane@gmail.com");
+//dic.Set("Gerti", "gerti@gmail.com");
+//dic.Set("Arist", "arist@gmail.com");
 
 //dic.Set("rArist", "rarist@gmail.com");
 //dic.Set("tArist", "tarist@gmail.com");
 //dic.Set("yArist", "yarist@gmail.com");
-dic.Print();
+//dic.Print();
 
-Console.WriteLine(dic.Get("Tane"));
-Console.WriteLine(dic.Get("Sinar"));
-Console.WriteLine(dic.Get("Elviaaa"));
+//Console.WriteLine(dic.Get("Tane"));
+//Console.WriteLine(dic.Get("Sinar"));
+//Console.WriteLine(dic.Get("Elviaaa"));
 
-dic.Remove("Sinar");
-dic.Remove("Elvis");
-dic.Remove("Tane");
-dic.Remove("Gerti");
-dic.Remove("Arist");
-dic.Print();
-dic.Set("Sinar", "sinar@gmail.com");
-dic.Print();
+//dic.Remove("Sinar");
+//dic.Remove("Elvis");
+//dic.Remove("Tane");
+//dic.Remove("Gerti");
+//dic.Remove("Arist");
+//dic.Print();
+//dic.Set("Sinar", "sinar@gmail.com");
+//dic.Print();
 
 #endregion
+#region Hash FNV-1a 
+//Console.WriteLine(DataStructuresLibrary.Hashs.Hash.Hash32("This is Original Text"));
+//Console.WriteLine(DataStructuresLibrary.Hashs.Hash.Hash64("This is Original Text"));
+#endregion
 
+#region HashTable
+using DataStructuresLibrary.Hashs;
+
+HashTable<string, string> table = new HashTable<string, string>();
+table.Print();
+table.Set("Sinar", "sinar@gmail.com");
+table.Set("Elvis", "elvis@gmail.com");
+table.Set("Tane", "tane@gmail.com");
+table.Print();
+Console.WriteLine("[get] " + table.Get("Sinar"));
+//Console.WriteLine("[get] " + table.Get("Tane"));
+table.Set("Gerti", "gerti@gmail.com");
+table.Set("Arist", "arist@gmail.com");
+table.Print();
+Console.WriteLine("[get] " + table.Get("Sinar"));
+
+#endregion
 
 Console.ReadKey();
