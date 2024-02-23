@@ -45,8 +45,8 @@ namespace DataStructuresLibrary.Hashs
         /// Handling Collision
         /// </summary>
         /// <param name="key">get to set or get</param>
-        /// <param name="hash">the first hash value that is exi</param>
-        /// <param name="Set"></param>
+        /// <param name="hash">the first hash value that is already exist</param>
+        /// <param name="Set">flag to detrimine the call  from get or set function</param>
         /// <returns>new hash as an index for spescific key and hash,
         ///         -1 if there's something wrong with inputs
         /// 

@@ -132,21 +132,47 @@
 #endregion
 
 #region HashTable
-using DataStructuresLibrary.Hashs;
+//using DataStructuresLibrary.Hashs;
 
-HashTable<string, string> table = new HashTable<string, string>();
-table.Print();
-table.Set("Sinar", "sinar@gmail.com");
-table.Set("Elvis", "elvis@gmail.com");
-table.Set("Tane", "tane@gmail.com");
-table.Print();
-Console.WriteLine("[get] " + table.Get("Sinar"));
-//Console.WriteLine("[get] " + table.Get("Tane"));
-table.Set("Gerti", "gerti@gmail.com");
-table.Set("Arist", "arist@gmail.com");
-table.Print();
-Console.WriteLine("[get] " + table.Get("Sinar"));
+//HashTable<string, string> table = new HashTable<string, string>();
+//table.Print();
+//table.Set("Sinar", "sinar@gmail.com");
+//table.Set("Elvis", "elvis@gmail.com");
+//table.Set("Tane", "tane@gmail.com");
+//table.Print();
+//Console.WriteLine("[get] " + table.Get("Sinar"));
+////Console.WriteLine("[get] " + table.Get("Tane"));
+//table.Set("Gerti", "gerti@gmail.com");
+//table.Set("Arist", "arist@gmail.com");
+//table.Print();
+//Console.WriteLine("[get] " + table.Get("Sinar"));
 
+#endregion
+
+#region HashTable
+using DataStructuresLibrary.Trees;
+
+BinaryTree<char> tree = new BinaryTree<char>();
+tree.Insert('A');
+
+tree.Insert('B');
+tree.Insert('C');
+
+tree.Insert('D');
+tree.Insert('E');
+tree.Insert('F');
+tree.Insert('G');
+
+tree.Insert('H');
+tree.Insert('i');
+tree.Print();
+
+Console.WriteLine($"Height: {tree.Height()}");
+tree.PreOrderDepthTraversal();
+
+tree.InOrderDepthTraversal();
+
+tree.PostOrderDepthTraversal();
 #endregion
 
 Console.ReadKey();
